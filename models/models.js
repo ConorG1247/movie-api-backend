@@ -8,10 +8,13 @@ const getUserWatchlistData = async (user) => {
 
 // model to take user and title given from frontend body 
 // saves this data in the DB to use later to show saved movies to watchlist
-const watchlistAddMovie = async (user, title) => {
+const watchlistAddMovie = async (body) => {
     const data = new movieData({
-        user: user,
-        title: title
+        user: body.user,
+        title: body.title,
+        poster: body.poster,
+        year: body.year,
+        imdbID: body.imdbID,
     })
     
     // adds data to the mongo database

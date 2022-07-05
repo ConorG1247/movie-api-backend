@@ -8,6 +8,15 @@ const movieUserData = new mongoose.Schema({
   title: {
     type: String,
   },
+  poster: {
+    type: String,
+  },
+  year: {
+    type: Number,
+  },
+  imdbID: {
+    type: String,
+  },
 })
 
 const movieData = mongoose.model("movieData", movieUserData);
