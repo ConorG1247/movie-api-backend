@@ -23,7 +23,16 @@ const watchlistAddMovie = async (body) => {
     return res;
 }
 
+const deleteWatchlistMovie = async (id) => {
+  const data = movieData.findById({ _id: id });
+
+  const res = await data.deleteOne();
+
+  return res;
+}
+
   module.exports = {
     watchlistAddMovie: watchlistAddMovie,
     getUserWatchlistData: getUserWatchlistData,
+    deleteWatchlistMovie: deleteWatchlistMovie,
   }

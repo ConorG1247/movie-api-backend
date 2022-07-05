@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { watchlistAddMovie, getUserWatchlistData } = require("../models/models")
+const { watchlistAddMovie, getUserWatchlistData, deleteWatchlistMovie } = require("../models/models")
 
 // get stored data of movies in watchlist
 router.get("/:user", async (req, res) => {
@@ -15,4 +15,11 @@ router.post("/", async (req, res) => {
     res.json({ success: true, payload: response})
 })
 
-module.exports = router;
+// delete request to remove selected movie from users watchlist
+router.delete("/", async (req, res) => {
+    const id = req.body.id
+    const response = await deleteWatchlistMovie(id);
+    res.json({ success: true, payload: response})
+})
+
+module.exports = router; 
