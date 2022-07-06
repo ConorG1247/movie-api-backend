@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 
 // folder schema for logged in users
-const movieUserData = new mongoose.Schema({
-  user: {
-    type: String,
-  },
+const movieArraySchema = new mongoose.Schema({
   title: {
     type: String,
   },
@@ -17,10 +14,20 @@ const movieUserData = new mongoose.Schema({
   imdbID: {
     type: String,
   },
+});
+
+const userMovieSchema = new mongoose.Schema({
+  user: {
+    type: String,
+  },
+  type: {
+    type: String,
+  },
+  data: [movieArraySchema]
 })
 
-const movieData = mongoose.model("movieData", movieUserData);
+const movieData = mongoose.model("movieData", userMovieSchema);
 
 module.exports = {
-  movieData: movieData,
-}
+  movieData,
+};
