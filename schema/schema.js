@@ -11,7 +11,7 @@ const movieArraySchema = new mongoose.Schema({
   year: {
     type: Number,
   },
-  imdbID: {
+  id: {
     type: String,
   },
 });

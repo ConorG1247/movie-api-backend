@@ -23,8 +23,7 @@ mongoose
   .then(() => console.log("mongoDB is connected"))
   .catch((err) => console.log(err));
 
-// upload image route
-app.use("/movie", router);
+app.use("/", router);
 
 // connects to port
 app.listen(port, () => console.log(`server is running on ${port}`));

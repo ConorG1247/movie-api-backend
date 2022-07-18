@@ -1,8 +1,8 @@
 const { movieData } = require("../schema/schema.js")
 
-
-const getUserWatchlistData = async (user) => {
-    const data = movieData.find({ user: user })
+const getUserWatchlistData = async (type, user) => {
+    const data = movieData.find({ type: type, user: user
+      })
     return data;
 }
 
